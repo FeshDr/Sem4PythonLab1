@@ -22,6 +22,18 @@ def calc_func(a, b, operator):
     else:
         return "Incorrect operator"
 
+def task3():
+    start = []
+    result = []
+    s = input("Enter arr in one line divide elements with ' '").split()
+    try:
+        start = list(map(int,s))
+    except ValueError:
+        print("Incorrect input")
+    for i in start:
+        if i % 2 == 0:
+            result.append(i)
+    return result
 
 if __name__ == '__main__':
     hello_world()
@@ -33,3 +45,7 @@ if __name__ == '__main__':
         print(calc_func(int(input_a_str),int(input_b_str),input_oper_str))
     except ValueError:
         print("Incorrecrt input")
+
+    out_list = task3()
+    for i in out_list:
+        print(str(i),end=', ')
