@@ -31,7 +31,8 @@ def find_number_of_all_sentences(input_str,  writer = True):
                 else:
                     number_of_all_sentences += 1
             else:
-                number_of_all_sentences += 1
+                #number_of_all_sentences += 1
+                None
     
     if writer:
         print(f"Number of all sentences is {number_of_all_sentences}")
@@ -46,6 +47,10 @@ def find_number_of_all_non_dec_sentences(input_str):
 
     for word in result:
         if word[2] != '':
+            #print(word[0])
+            #print(word[1])
+            #print(word[2])
+            #print(word[3])
             good_check = check_exceptions(word[1])
             if good_check:
                 if word[3] != '':
@@ -103,21 +108,19 @@ def find_top_n_gramms(input_str, K = 10, N = 4):
             for i in range(0, len(word[1]) - N + 1):
                 n_gramm_dict[word[1][i:i+N]] = n_gramm_dict.get(word[1][i:i+N],0) + 1
 
-    n_gramm_dict = sorted(n_gramm_dict.items(), key = lambda x: x[1], reverse = True)[:K] 
+    n_gramm_dict_res = sorted(n_gramm_dict.items(), key = lambda x: x[1], reverse = True)[:K] 
 
-    print(n_gramm_dict)
-    return n_gramm_dict
+    print(n_gramm_dict_res)
+    return n_gramm_dict_res
 
 
 
 def stat_of_text():
 
-    print("Do you want to load default file? Y/N")
-
     validator = 1
 
     while(validator):
-        get = input("Do y want to load your db? Y/N : ")
+        get = input("Do you want to load default file? Y/N : ")
         if(get == "Y"):
             validator = 0
             input_str = read_file()
