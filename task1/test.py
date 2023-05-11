@@ -1,5 +1,11 @@
 import unittest
-from Utils import find_number_of_all_sentences , find_number_of_all_non_dec_sentences, find_average_len_of_sentences, find_average_len_of_words, find_top_n_gramms
+from Utils import (
+    find_number_of_all_sentences, 
+    find_number_of_all_non_dec_sentences, 
+    find_average_len_of_sentences, 
+    find_average_len_of_words, 
+    find_top_n_gramms,
+)
 
 class T(unittest.TestCase):
     def test_sentence_counter(self):

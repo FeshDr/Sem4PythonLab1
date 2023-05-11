@@ -15,7 +15,7 @@ def check_exceptions(word) -> bool:
 
 regex_pattertn = r"(([0-9]*[a-zA-Z\']+[0-9]*[a-zA-Z\']*[0-9]*)(\.\.\.|!|\?|\.)?(\"|\')?(\.\.\.|!|\?|\.)?)"
 
-def find_number_of_all_sentences(input_str,  writer = True):
+def find_number_of_all_sentences(input_str,  writer=True):
 
     number_of_all_sentences = 0
 
@@ -32,7 +32,7 @@ def find_number_of_all_sentences(input_str,  writer = True):
                     number_of_all_sentences += 1
             else:
                 #number_of_all_sentences += 1
-                None
+                pass
     
     if writer:
         print(f"Number of all sentences is {number_of_all_sentences}")
@@ -44,7 +44,6 @@ def find_number_of_all_non_dec_sentences(input_str):
     number_of_non_declarative_sentences = 0
 
     result = re.findall(regex_pattertn, input_str, flags=0)
-
     for word in result:
         if word[2] != '':
             #print(word[0])
@@ -55,7 +54,7 @@ def find_number_of_all_non_dec_sentences(input_str):
             if good_check:
                 if word[3] != '':
                     if word[4] != '':
-                        if word[4] != '.' and word[4] != '...':
+                        if word[4] != '.' and word[4] != '...': # if word[4] not in ['.', '...', '']
                             number_of_non_declarative_sentences += 1
                 else:
                     if word[2] != '.' and word[2] != '...':
@@ -96,7 +95,7 @@ def find_average_len_of_words(input_str):
 
     return len(result)/lengs
 
-def find_top_n_gramms(input_str, K = 10, N = 4):
+def find_top_n_gramms(input_str, K=10, N=4):
 
     result = re.findall(regex_pattertn, input_str, flags = 0)
 
@@ -113,7 +112,7 @@ def find_top_n_gramms(input_str, K = 10, N = 4):
     print(n_gramm_dict_res)
     return n_gramm_dict_res
 
-
+map
 
 def stat_of_text():
 
