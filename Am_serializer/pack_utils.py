@@ -1,6 +1,6 @@
 import inspect
 import types
-from MySerializer.constants import PRIMITIVES, COLLECTIONS
+from Am_serializer.constants import PRIMITIVES, COLLECTIONS
 from types import FunctionType, BuiltinFunctionType, LambdaType, GetSetDescriptorType, MappingProxyType, \
     MethodDescriptorType, WrapperDescriptorType
 

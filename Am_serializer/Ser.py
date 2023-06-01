@@ -1,7 +1,7 @@
-from MySerializer.json_utils import Json
-from MySerializer.xml_utils import Xml
+from Am_serializer.json_utils import Json
+from Am_serializer.xml_utils import Xml
 
-class MySerializer:
+class Ser:
     @staticmethod
     def createSerializer(format):
         if format == ".json":

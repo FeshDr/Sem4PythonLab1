@@ -2,16 +2,16 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name="SalatikSer",
-    version="1.3.0",
+    name="ArteomSer",
+    version="0.9.0",
     description="JSON and XLM serializer",
-    author="Daniil Litvinets",
-    author_email="salatik.dan@gmail.com",
+    author="Arteom Maksimchikau",
+    author_email="maksimchikov03@mail.ru",
     packages=find_packages(),
     include_package_data=True,
     entry_points={
     'console_scripts': [ 
-        'serializer = MySerializer.serializer:main' 
+        'serializer = Am_serialize.serializer:main' 
     ] 
 },
 )

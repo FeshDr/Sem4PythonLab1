@@ -1,5 +1,5 @@
 from argparse import ArgumentParser
-from MySerializer.MySerializer import MySerializer
+from Am_serializer.Ser import Ser
 
 def main():
     try:
@@ -19,8 +19,8 @@ def main():
             print("Format from and format to are the same. Please check your data and try again")
             exit()
 
-        from_serializer = MySerializer.createSerializer(args.format_from)
-        to_serializer = MySerializer.createSerializer(args.format_to)
+        from_serializer = Ser.createSerializer(args.format_from)
+        to_serializer = Ser.createSerializer(args.format_to)
 
         with open(args.file_from) as file:
             obj = from_serializer.load(file)

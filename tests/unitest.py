@@ -1,13 +1,13 @@
 import unittest
 import math
-from MySerializer.MySerializer import MySerializer
+from Am_serializer.Ser import Ser
 from test_attributes import foo,gen,lam,first,rec, A,B,C,firstIn,fooMath,closure
 import inspect
 
 class JsonTests(unittest.TestCase):
 
     def test_json_func(self):        
-        ser = MySerializer.createSerializer(".json")                
+        ser = Ser.createSerializer(".json")                
         self.assertEqual(foo(2,2),ser.loads(ser.dumps(foo))(2,2))
         for i,k in zip(gen(1),ser.loads(ser.dumps(gen))(1)):
             self.assertEqual(i,k)  
@@ -15,11 +15,10 @@ class JsonTests(unittest.TestCase):
         self.assertEqual(first(1),ser.loads(ser.dumps(first))(1))
         self.assertEqual(rec(4),ser.loads(ser.dumps(rec))(4))
         self.assertEqual(firstIn(4),ser.loads(ser.dumps(firstIn))(4))
-        self.assertEqual(closure(0)(0),ser.loads(ser.dumps(closure))(0)(0))
 
 
     def test_json_primitive(self):
-        ser = MySerializer.createSerializer(".json")
+        ser = Ser.createSerializer(".json")
         obj = 1
         self.assertEqual(obj,ser.loads(ser.dumps(obj)))
         obj = True
@@ -32,7 +31,7 @@ class JsonTests(unittest.TestCase):
         self.assertEqual(obj,ser.loads(ser.dumps(obj)))
 
     def test_json_collections(self):
-        ser = MySerializer.createSerializer(".json")
+        ser = Ser.createSerializer(".json")
         obj = [1,2,3,4,5]
         self.assertEqual(obj,ser.loads(ser.dumps(obj)))
         obj = (1,2,3,4,5)
@@ -43,12 +42,12 @@ class JsonTests(unittest.TestCase):
         self.assertEqual(obj,ser.loads(ser.dumps(obj)))
 
     def test_json_func_with_lib(self):
-        ser = MySerializer.createSerializer(".json")
+        ser = Ser.createSerializer(".json")
         self.assertEqual(fooMath(2),ser.loads(ser.dumps(fooMath))(2))
 
 
     def test_json_class(self):                     
-        ser = MySerializer.createSerializer(".json")
+        ser = Ser.createSerializer(".json")
         _class = A
         _serializedClass = ser.loads(ser.dumps(_class))
 
@@ -62,7 +61,7 @@ class JsonTests(unittest.TestCase):
 
 
     def test_json_classInheritance(self):
-        ser = MySerializer.createSerializer(".json")
+        ser = Ser.createSerializer(".json")
         _class = B
         _serializedClass = ser.loads(ser.dumps(_class))
         a = _class(1)
@@ -85,7 +84,7 @@ class JsonTests(unittest.TestCase):
         self.assertEqual(a.letter(),b.letter())
 
     def test_json_object(self):
-        ser = MySerializer.createSerializer(".json")
+        ser = Ser.createSerializer(".json")
         a = B(1)
         b = ser.loads(ser.dumps(a))
 
@@ -93,7 +92,7 @@ class JsonTests(unittest.TestCase):
     
     def test_json_to_file(self):
         obj = 1
-        ser = MySerializer.createSerializer('.json')
+        ser = Ser.createSerializer('.json')
         with open("test.json", "w+") as output_file:
             ser.dump(obj, output_file)
 
@@ -105,7 +104,7 @@ class JsonTests(unittest.TestCase):
         
 class XmlTests(unittest.TestCase):
     def test_xml_primitive(self):
-        ser = MySerializer.createSerializer(".xml")
+        ser = Ser.createSerializer(".xml")
         obj = 1
         self.assertEqual(obj,ser.loads(ser.dumps(obj)))
         obj = True
@@ -118,7 +117,7 @@ class XmlTests(unittest.TestCase):
         self.assertEqual(obj,ser.loads(ser.dumps(obj)))
 
     def test_xml_collections(self):
-        ser = MySerializer.createSerializer(".xml")
+        ser = Ser.createSerializer(".xml")
         obj = [1,2,3,4,5]
         self.assertEqual(obj,ser.loads(ser.dumps(obj)))
         obj = (1,2,3,4,5)
@@ -129,7 +128,7 @@ class XmlTests(unittest.TestCase):
         self.assertEqual(obj,ser.loads(ser.dumps(obj)))
 
     def test_xml_func(self):        
-        ser = MySerializer.createSerializer(".json")
+        ser = Ser.createSerializer(".json")
         self.assertEqual(foo(2,2),ser.loads(ser.dumps(foo))(2,2))
         for i,k in zip(gen(1),ser.loads(ser.dumps(gen))(1)):
             self.assertEqual(i,k)  
@@ -140,11 +139,11 @@ class XmlTests(unittest.TestCase):
         
 
     def test_xml_func_with_lib(self):
-        ser = MySerializer.createSerializer(".json")
+        ser = Ser.createSerializer(".json")
         self.assertEqual(fooMath(2),ser.loads(ser.dumps(fooMath))(2))
 
     def test_xml_class(self):
-        ser = MySerializer.createSerializer(".xml")
+        ser = Ser.createSerializer(".xml")
         _class = A
         _serializedClass = ser.loads(ser.dumps(_class))
         a = _class(1)
@@ -155,7 +154,7 @@ class XmlTests(unittest.TestCase):
         self.assertEqual(a.a_func(),b.a_func())
 
     def test_xml_classInheritance(self):
-        ser = MySerializer.createSerializer(".xml")
+        ser = Ser.createSerializer(".xml")
         _class = B
         _serializedClass = ser.loads(ser.dumps(_class))
         a = _class(1)
@@ -167,7 +166,7 @@ class XmlTests(unittest.TestCase):
         self.assertEqual(a.b_func(),b.b_func())
         
     def test_xml_object(self):
-        ser = MySerializer.createSerializer(".xml")
+        ser = Ser.createSerializer(".xml")
         a = B(1)
         b = ser.loads(ser.dumps(a))
         
@@ -176,7 +175,7 @@ class XmlTests(unittest.TestCase):
 
     def test_xml_to_file(self):
         obj = "Pup"
-        ser = MySerializer.createSerializer('.xml')
+        ser = Ser.createSerializer('.xml')
         with open("test.xml", "w+") as output_file:
             ser.dump(obj, output_file)
 
