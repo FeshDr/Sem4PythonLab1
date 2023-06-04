@@ -6,8 +6,9 @@ def fooMath(a):
 def foo(a,b):
     return a+b
 
-def closure(a):
+def closure(func):
     def inner(a):
+        func(a)
         return 0
     
     return inner
